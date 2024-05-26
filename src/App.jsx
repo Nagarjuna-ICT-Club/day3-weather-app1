@@ -51,7 +51,7 @@ function App() {
       </div>
 
       <div className=" text-lg rounded-xl drop-shadow-lg bg-opacity-60 bg-white p-6 text-gray-600 w-2/5">
-        <div className="flex flex-row justify-center items-center gap-2 mb-1 drop-shadow-lg">
+        <div className="flex flex-row justify-center items-center gap-2 mb-1 drop-shadow-sm">
           <label htmlFor="city__field">Place Name: </label>
           <input
             id="city__field"
