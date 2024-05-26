@@ -25,12 +25,12 @@ function App() {
             `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
           );
         } else {
-          setWeatherData((prevData) => prevData);
+        //   setWeatherData((prevData) => prevData);
         }
       })
       .catch(() => {
         console.log("Error");
-        setWeatherData((prevData) => prevData);
+        // setWeatherData((prevData) => prevData);
       })
       .finally(() => {
         setLoading(false);
@@ -52,7 +52,7 @@ function App() {
 	</div>
 
 	  <div className=" text-lg rounded-xl drop-shadow-lg bg-opacity-60 bg-white p-6 text-gray-600 w-2/5">
-		<div className="flex flex-row justify-center items-center gap-2 mb-1">
+		<div className="flex flex-row justify-center items-center gap-2 mb-1 drop-shadow-lg">
 			<label htmlFor="city__field">Place Name: </label>
 			<input
 				id="city__field"
@@ -61,7 +61,7 @@ function App() {
 				value={cityName}
 				onChange={(e) => handleCityChange(e)}
 			/>
-			<button className="rounded-md bg-gray-500 p-2 text-white" onClick={handleCitySet}>
+			<button className="rounded-md bg-gray-500 p-2 text-white drop-shadow-lg" onClick={handleCitySet}>
 				OK
 			</button>
 		</div>
@@ -70,15 +70,15 @@ function App() {
 		) : weatherData ? (
 			<div className="flex flex-col items-center gap-2">
 			<div className="flex flex-col align-middle justify-center gap-1">
-				<img src={imgURL} alt="Weather Image" />
-				<p className="text-gray-600 text-center">{weatherData.weather[0].main} Sky</p>
+				<img className="drop-shadow-lg" src={imgURL} alt="Weather Image" />
+				<p className="text-gray-600 text-center drop-shadow-lg">{weatherData.weather[0].main} Sky</p>
 			</div>
-			<div className="w-3/5 m-auto">
+			<div className="w-3/5 m-auto drop-shadow-lg">
 				<p className="flex justify-between"><b>Temperature: </b>{weatherData.main.temp} °C</p>
 				<p className="flex justify-between"><b>Wind Speed: </b>{weatherData.wind.speed} km/h</p>
 				<p className="flex justify-between"><b>Humidity: </b>{weatherData.main.humidity} %</p>
 			</div>
-			<h2 className="text-3xl font-bold text-cente">{weatherData.name}</h2>
+			<h2 className="text-3xl font-bold text-center drop-shadow-lg">{weatherData.name}</h2>
 			</div>
 		) : (
 			"No Data"
