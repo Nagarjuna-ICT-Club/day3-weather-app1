@@ -47,11 +47,11 @@ function App() {
   return (
     <div className={`flex flex-col justify-center items-center gap-3 w-screen h-screen bg-green-50`}>
 	<img className="w-screen h-screen absolute blur-lg opacity-80" src={randomSky} alt="" />
-	<div  className="text-3xl font-bold text-center text-gray-600 bg-opacity-50 bg-white p-6 rounded-lg drop-shadow-md z-1 w-2/5">
+	<div  className="text-3xl font-bold text-center text-gray-600 bg-opacity-60 bg-white p-6 rounded-lg drop-shadow-md z-1 w-2/5">
       <h1>Weather Forecast</h1>
 	</div>
 
-	  <div className=" text-lg rounded-xl drop-shadow-lg bg-opacity-50 bg-white p-6 text-gray-600 w-2/5">
+	  <div className=" text-lg rounded-xl drop-shadow-lg bg-opacity-60 bg-white p-6 text-gray-600 w-2/5">
 		<div className="flex flex-row justify-center items-center gap-2 mb-1">
 			<label htmlFor="city__field">Place Name: </label>
 			<input
