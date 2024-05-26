@@ -8,6 +8,7 @@ function App() {
   let [cityName, setCityName] = useState("Kathmandu");
   let [imgURL, setImgURL] = useState("");
   let [weatherData, setWeatherData] = useState(null);
+  let [dataError, setDataError] = useState(false);
 
   let randomSky = "https://source.unsplash.com/random/1920x1080/?sky";
 
@@ -20,16 +21,19 @@ function App() {
       .then((res) => {
         if (res.statusText === "OK") {
           console.log(res.data);
+		  setDataError(false);
           setWeatherData({ ...res.data });
           setImgURL(
             `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`
           );
         } else {
         //   setWeatherData((prevData) => prevData);
-        }
-      })
-      .catch(() => {
-        console.log("Error");
+		setDataError(true);
+	}
+})
+.catch(() => {
+	console.log("Error");
+	setDataError(true);
         // setWeatherData((prevData) => prevData);
       })
       .finally(() => {
@@ -45,9 +49,9 @@ function App() {
     setActive(true);
   }
   return (
-    <div className={`flex flex-col justify-center items-center gap-3 w-screen h-screen bg-green-50`}>
+    <div className={`flex flex-col items-center gap-3 w-screen h-screen bg-green-50`}>
 	<img className="w-screen h-screen absolute blur-lg opacity-80" src={randomSky} alt="" />
-	<div  className="text-3xl font-bold text-center text-gray-600 bg-opacity-60 bg-white p-6 rounded-lg drop-shadow-md z-1 w-2/5">
+	<div  className="text-3xl font-bold text-center text-gray-600 bg-opacity-60 bg-white p-6 rounded-lg drop-shadow-md z-1 w-2/5 mt-10">
       <h1>Weather Forecast</h1>
 	</div>
 
@@ -84,6 +88,11 @@ function App() {
 			"No Data"
 		)}
 	  </div>
+	  {dataError ? 
+		<div className="error__msg text-lg text-center rounded-lg drop-shadow-lg bg-opacity-60 bg-white p-3 text-red-600 w-2/5">
+			No Data Found
+			</div>
+	  : ""}
     </div>
   );
 }
