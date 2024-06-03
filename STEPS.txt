@@ -10,6 +10,7 @@
     let [cityName, setCityName] = useState("Kathmandu");
     let [imgURL, setImgURL] = useState("");
     let [weatherData, setWeatherData] = useState(null);
+	let [dataError, setDataError] = useState(false);
 
 4. Add axios fetch logic in App.jsx: 
      useEffect(() => {
